@@ -1,0 +1,25 @@
+<div class="text-center">
+  <h1>City List</h1>
+
+  <p>A bare-bones demo for your experimenting / bug-reproducing pleasure.</p>
+</div>
+
+<div class="searchbox">
+  <input type="text" [(ngModel)]="query" />
+  {{ query }}
+</div>
+<div class="list">
+  <ul>
+    <li
+      *ngFor="
+        let item of collection | paginate: { itemsPerPage: 10, currentPage: p }
+      "
+    >
+      <a routerLink="/edit/{{ item }}">
+        {{ item }}
+      </a>
+    </li>
+  </ul>
+
+  <pagination-controls (pageChange)="p = $event"></pagination-controls>
+</div>

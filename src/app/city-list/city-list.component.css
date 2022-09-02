@@ -1,0 +1,16 @@
+.text-center {
+    text-align: center;
+  }
+  
+  .list {
+    max-width: 550px;
+    margin: auto;
+  }
+  
+  li {
+    margin-bottom: 5px;
+  }
+  .searchbox{
+    margin: auto;
+    text-align: center;
+  }
