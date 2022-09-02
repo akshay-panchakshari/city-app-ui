@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 import { CityEditComponent } from './city-edit/city-edit.component';
 import { CityListComponent } from './city-list/city-list.component';
 
@@ -18,7 +19,8 @@ import { CityListComponent } from './city-list/city-list.component';
     BrowserModule,
     AppRoutingModule,
     NgxPaginationModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

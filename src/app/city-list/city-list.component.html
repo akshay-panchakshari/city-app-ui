@@ -12,11 +12,11 @@
   <ul>
     <li
       *ngFor="
-        let item of collection | paginate: { itemsPerPage: 10, currentPage: p }
+        let city of cities | paginate: { itemsPerPage: 10, currentPage: p }
       "
     >
-      <a routerLink="/edit/{{ item }}">
-        {{ item }}
+      <a routerLink="/edit/{{ city.id }}">
+        {{ city.name }}
       </a>
     </li>
   </ul>
