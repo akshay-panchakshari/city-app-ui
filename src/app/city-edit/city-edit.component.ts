@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
+import { City } from '../city';
+import { CityService } from '../service/city.service';
 
 @Component({
   selector: 'app-city-edit',
@@ -7,11 +9,18 @@ import { Location } from '@angular/common';
   styleUrls: ['./city-edit.component.css']
 })
 export class CityEditComponent implements OnInit {
-  cityName:string="";
-  constructor(private location: Location) { }
   
+  constructor(private location: Location,private cityService: CityService) { }
+  cityToEdit! : City;
+
   ngOnInit(): void {
+    this.cityService.selectedCity$.subscribe(city => {
+      this.cityToEdit= city
+      console.log(JSON.stringify( this.cityToEdit));
+    });
+    
   }
+
   cancel(): void {
     this.location.back();
   }

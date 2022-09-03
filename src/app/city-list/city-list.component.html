@@ -1,25 +1,37 @@
 <div class="text-center">
-  <h1>City List</h1>
+  <h1>City 🌆 List</h1>
 
-  <p>A bare-bones demo for your experimenting / bug-reproducing pleasure.</p>
+  <p>Browse through all the cities in the world! 🚀</p>
+  <p>Click to edit the entry!</p>
 </div>
 
 <div class="searchbox">
-  <input type="text" [(ngModel)]="query" />
-  {{ query }}
+  <input
+    class="list-input"
+    type="text"
+    [(ngModel)]="query"
+    placeholder="Type something & hit enter"
+    (keyup.enter)="onEnter(query)"
+  />
 </div>
 <div class="list">
   <ul>
     <li
       *ngFor="
-        let city of cities | paginate: { itemsPerPage: 10, currentPage: p }
+        let city of cities
+          | paginate
+            : {
+                itemsPerPage: 10,
+                currentPage: pageIndex,
+                totalItems: totalItems
+              }
       "
     >
-      <a routerLink="/edit/{{ city.id }}">
+      <a routerLink="/edit/{{ city.id }}" (click)="editCity(city.id)">
         {{ city.name }}
       </a>
     </li>
   </ul>
 
-  <pagination-controls (pageChange)="p = $event"></pagination-controls>
+  <pagination-controls (pageChange)="getCities($event)"></pagination-controls>
 </div>

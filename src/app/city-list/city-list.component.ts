@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { PaginationInstance } from 'ngx-pagination';
 import { City } from '../city';
+import { Page } from '../page';
+
 import { CityService } from '../service/city.service';
 
 @Component({
@@ -8,25 +11,36 @@ import { CityService } from '../service/city.service';
   styleUrls: ['./city-list.component.css']
 })
 export class CityListComponent implements OnInit {
-  cities: City[] = [];
-  ngOnInit(): void {
-    this.getCities();
-  }
-
-  p:number  = 0;
+  pageIndex:number  = 0;
   query:string ="";
-  collection:string[] = [];
+  
+  cities: City[] = [];
+  page:Page | undefined  ;
+  totalItems:number | undefined;
+  
   constructor(private cityService: CityService) {
-
-
-    /*
-    for (let i = 1; i <= 100; i++) {
-      this.collection.push(`${i}`);
-    }*/
   }
 
-  getCities():void{
-    this.cityService.getCities().subscribe(cities=>this.cities = cities);
+  ngOnInit(): void {
+    this.getCities(this.pageIndex);
+   // this.cityService.selectedCity$.subscribe(city => this.cityToEdit= city);
   }
 
+  getCities(pageIndex:number):void{
+    console.log("Fetching records for page "+pageIndex);
+    this.pageIndex = pageIndex;
+    this.cityService.getCities(this.query,this.pageIndex).subscribe(page=>{
+      this.page = page;
+      this.cities = this.page?.content;
+      this.totalItems = this.page?.totalElements;
+    });
+  }
+  onEnter(value: string) { 
+    console.log("searching for "+ value) 
+    this.getCities(this.pageIndex);
+  }
+  editCity(id:number){
+    let cityToEdit = this.cities.find(city => city.id === id);
+    this.cityService.updateCityToEdit(cityToEdit as City);
+  }
 }
