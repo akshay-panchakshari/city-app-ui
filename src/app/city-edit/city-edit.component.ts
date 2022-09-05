@@ -16,12 +16,18 @@ export class CityEditComponent implements OnInit {
   ngOnInit(): void {
     this.cityService.selectedCity$.subscribe(city => {
       this.cityToEdit= city
-      console.log(JSON.stringify( this.cityToEdit));
+     // console.log(JSON.stringify( this.cityToEdit));
     });
     
   }
 
-  cancel(): void {
+  goBack(): void {
     this.location.back();
+  }
+
+  save(){
+    this.cityService.updateCity(this.cityToEdit.id,this.cityToEdit).subscribe(city=>{
+      this.goBack();
+    });
   }
 }

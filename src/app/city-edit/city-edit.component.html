@@ -1,4 +1,4 @@
-<div class="text-center">
+<!--<div class="text-center">
   <h1>Edit ✍️ City List</h1>
 </div>
 
@@ -8,4 +8,54 @@
   <input [(ngModel)]="cityToEdit.photo" />
   {{ cityToEdit.name }}
   <button type="button" (click)="cancel()">Cancel</button>
+</div>
+
+-->
+<!--
+<div class="text-center">
+  <h2> You are editing details for {{cityToEdit.name}} </h2>
+  <div><span>id: </span>{{cityToEdit.id}}</div>
+  <div>
+    <label for="city-name">City Name: </label>
+    <input id="city-name" [(ngModel)]="cityToEdit.name" placeholder="City name"/>
+  </div>
+  <div>
+    <label for="city-img">Image: </label>
+    <input id="city-img" [(ngModel)]="cityToEdit.photo" placeholder="City photo"/>
+  </div>
+
+  <button type="button" (click)="cancel()">Go back</button>
+  <button type="button" (click)="save()">Save</button>
+</div>
+-->
+
+<div class="container">
+  <h2>You are editing ✍️ details for {{ cityToEdit.name }}</h2>
+  <form (ngSubmit)="save()">
+    <div class="mb-3">
+      <label for="cityName" class="form-label">City Name</label>
+      <input
+        type="text"
+        class="form-control"
+        id="cityName"
+        aria-describedby="cityName"
+        name="cityName"
+        [(ngModel)]="cityToEdit.name"
+      />
+    </div>
+    <div class="mb-3">
+      <label for="cityPhoto" class="form-label">Photo</label>
+      <textarea
+        class="form-control"
+        id="cityPhoto"
+        rows="3"
+        name="cityPhoto"
+        [(ngModel)]="cityToEdit.photo"
+      ></textarea>
+    </div>
+    <button type="button" class="btn btn-secondary" (click)="goBack()">
+      Go Back
+    </button>
+    <button type="submit" class="btn btn-primary">Save</button>
+  </form>
 </div>

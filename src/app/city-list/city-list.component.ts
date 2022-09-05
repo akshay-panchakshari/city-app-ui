@@ -23,7 +23,6 @@ export class CityListComponent implements OnInit {
 
   ngOnInit(): void {
     this.getCities(this.pageIndex);
-   // this.cityService.selectedCity$.subscribe(city => this.cityToEdit= city);
   }
 
   getCities(pageIndex:number):void{

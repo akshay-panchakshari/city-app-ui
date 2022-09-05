@@ -1,5 +1,15 @@
 :host {
     font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
   }
+
+.container{
+  
+    margin-top: 20px;
+    text-align: center;
+    /*
+    display: flex;
+    justify-content: center;
+    */
+}
   
   

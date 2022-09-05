@@ -1,4 +1,42 @@
+/*
 .text-center {
     text-align: center;
+  }
+
+  label {
+    color: #435960;
+    font-weight: bold;
+  }
+  input {
+    font-size: 1em;
+    padding: .5rem;
+  }
+  */
+  button {
+    margin-top: 20px;
+    margin-right: .5rem;
+    /*
+    padding: 1rem;
+    border-radius: 4px;*/
+    font-size: 1rem;
+  }
+  
+  .container{
+  
+    margin-top: 20px;
+    
+    /*
+    display: flex;
+    justify-content: center;
+    
+  }
+
+  .city-edit{
+
+    margin-top: 20px;
+    /*
+    display: flex;
+    justify-content: center;
+    */
   }
   

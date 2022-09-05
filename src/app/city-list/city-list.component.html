@@ -1,37 +1,35 @@
-<div class="text-center">
-  <h1>City 🌆 List</h1>
+<div class="container"  >
+  <div class="input-group mb-3">
+    <input type="text" class="form-control" aria-label="Sizing example input" 
+      aria-describedby="inputGroup-sizing-default" 
+      placeholder="Type something and hit enter to search"
+      id="searchbox"
+      [(ngModel)]="query"
+      
+      (keyup.enter)="onEnter(query)"
+      >
+  </div>
 
-  <p>Browse through all the cities in the world! 🚀</p>
-  <p>Click to edit the entry!</p>
-</div>
-
-<div class="searchbox">
-  <input
-    class="list-input"
-    type="text"
-    [(ngModel)]="query"
-    placeholder="Type something & hit enter"
-    (keyup.enter)="onEnter(query)"
-  />
-</div>
-<div class="list">
-  <ul>
-    <li
-      *ngFor="
-        let city of cities
-          | paginate
-            : {
-                itemsPerPage: 10,
-                currentPage: pageIndex,
-                totalItems: totalItems
-              }
-      "
+  <div class="row row-cols-1 row-cols-md-2 g-4">
+    <div class="col" *ngFor="let city of cities | paginate
+    : {
+        itemsPerPage: 10,
+        currentPage: pageIndex,
+        totalItems: totalItems
+      }"
     >
-      <a routerLink="/edit/{{ city.id }}" (click)="editCity(city.id)">
-        {{ city.name }}
-      </a>
-    </li>
-  </ul>
-
-  <pagination-controls (pageChange)="getCities($event)"></pagination-controls>
+      <div class="card">
+        <img src={{city.photo}} class="card-img-top" alt={{city.name}}>
+        <div class="card-body">
+          <h5 class="card-title">{{city.name}}</h5>
+          <a href="#" class="btn btn-primary" routerLink="/edit/{{ city.id }}" (click)="editCity(city.id)">Edit</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="pagination">
+    <pagination-controls (pageChange)="getCities($event)"></pagination-controls>
+  </div>
+  
 </div>

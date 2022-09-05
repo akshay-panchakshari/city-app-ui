@@ -1,0 +1,10 @@
+.maincontent{
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+}
+button{
+   margin: auto;
+    display: flex;
+    justify-content: center;
+}
