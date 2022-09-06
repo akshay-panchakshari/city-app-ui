@@ -2,6 +2,15 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.5.
 
+## Reference
+
+You can login with below two users 
+  01) username "user" with password "userpass" with "ROLE_READ_ONLY" role 
+  02) username "admin" with password "adminpass" with "ROLE_ALLOW_EDIT" role  
+  
+Note: only admin can edit the city details
+
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
