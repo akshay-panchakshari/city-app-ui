@@ -9,12 +9,12 @@ import { User } from '../User';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent implements OnInit,OnDestroy {
+export class LoginComponent implements OnInit {
 
   user:User ={
     username: '',
     password: '',
-    role: ''
+    role: []
   };
   constructor( private authenticationService: AuthService, private router: Router,) { }
   
@@ -29,7 +29,5 @@ export class LoginComponent implements OnInit,OnDestroy {
         this.router.navigate(['../citylist']);
       } );
   }
-  ngOnDestroy(): void {
-    
-  }
+ 
 }

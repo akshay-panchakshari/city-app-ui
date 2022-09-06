@@ -16,11 +16,12 @@ export class AuthGuard implements CanActivate {
       console.log("Auth guard called!");
       const currentUser = this.authenticationService.currentUserValue;
       if (currentUser) {
-        if (route.data['roles'] && route.data['roles'].indexOf(currentUser.role) === -1) {
-          // role not authorised so redirect to home page
+        const intersection = route.data['roles'] ? route.data['roles'].filter((element: string) => currentUser.role.includes(element)):[];
+        if (intersection && intersection.length=== 0) {
+          // role not authorised so redirect to forbidden page
           this.router.navigate(['../forbidden']);
           return false;
-      }
+        }
       }
       return true;
   }

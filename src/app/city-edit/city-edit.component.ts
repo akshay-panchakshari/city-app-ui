@@ -16,7 +16,6 @@ export class CityEditComponent implements OnInit {
   ngOnInit(): void {
     this.cityService.selectedCity$.subscribe(city => {
       this.cityToEdit= city
-     // console.log(JSON.stringify( this.cityToEdit));
     });
     
   }

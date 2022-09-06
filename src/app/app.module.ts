@@ -10,6 +10,7 @@ import { CityEditComponent } from './city-edit/city-edit.component';
 import { CityListComponent } from './city-list/city-list.component';
 import { LoginComponent } from './login/login.component';
 import { ForbiddenComponent } from './forbidden/forbidden.component';
+import { authInterceptorProviders } from './auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,7 @@ import { ForbiddenComponent } from './forbidden/forbidden.component';
     FormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [authInterceptorProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
