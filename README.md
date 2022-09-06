@@ -4,6 +4,14 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Reference
 
+Features covered-
+  01) Login
+  02) browse through the paginated list of cities with the corresponding photos
+  03) search by the name
+  04) Edit city details (only allowed for user with ROLE_ALLOW_EDIT role)
+  05) APIs are secured with spring security basic auth
+  
+
 You can login with below two users 
   01) username "user" with password "userpass" with "ROLE_READ_ONLY" role 
   02) username "admin" with password "adminpass" with "ROLE_ALLOW_EDIT" role  
